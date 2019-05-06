@@ -4,12 +4,29 @@
   "description": "Demonstrate performance improvements using Cheerio to scan page DOM offline",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "setup": "node_modules/.bin/selenium-standalone install; node_modules/.bin/selenium-standalone start &",
+    "test": "node_modules/.bin/wdio ./wdio.conf.js"
   },
   "author": "Phil Wells",
   "license": "ISC",
   "devDependencies": {
+    "@wdio/cli": "^5.8.1",
+    "@wdio/local-runner": "^5.8.1",
+    "@wdio/mocha-framework": "^5.8.1",
+    "@wdio/spec-reporter": "^5.8.0",
+    "@wdio/sync": "^5.8.1",
+    "chai": "^4.2.0",
     "cheerio": "^1.0.0-rc.3",
+    "selenium-standalone": "^6.16.0",
     "webdriverio": "^5.8.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thephilwells/wdio-cheerio-demo.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/thephilwells/wdio-cheerio-demo/issues"
+  },
+  "homepage": "https://github.com/thephilwells/wdio-cheerio-demo#readme"
 }
