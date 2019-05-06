@@ -40,4 +40,4 @@ The puzzle page loads ads, and some ads containing video might take long enough 
 
 ## Fundamental Caveat
 
-The method uses WebdriverIO to pull an HTML string from the browser. After that, it uses cheerio to convert that HTML back into a DOM locally and uses cheerio again to crawl that DOM. This means the last time we're asserting something in the DOM, we're not asserting it directly in a browser. This will _usually_ not matter. In most cases, a DOM is just a DOM. Still, this is not adequate if you're intending to test functionality across browsers. BEWARE!
+The method uses WebdriverIO to pull an HTML string from the browser. After that, it uses cheerio to convert that HTML back into a DOM locally and uses cheerio again to crawl that DOM. This means the last time we're asserting something in the DOM, we're not asserting it directly in a browser. This will _usually_ not matter. In most cases, a DOM is just a DOM. Still, this is not adequate if you're intending to test functionality across browsers. Also, if your page's DOM updates frequently, there's a chance the copy you have stored locally could be stale. BEWARE!
