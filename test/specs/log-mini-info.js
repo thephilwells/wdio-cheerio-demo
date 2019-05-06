@@ -4,7 +4,6 @@ const cheerio = require('cheerio')
 const welcomeModalOkayButton = `[class*='buttons-modalButton']`
 const revealButton = `[class*='Toolbar-expandedMenu'] > [class*='Tool-button']:nth-of-type(2)`
 const revealWordButton = `[class*='Toolbar-expandedMenu'] > [class*='Tool-button']:nth-of-type(2) li:nth-of-type(2) a`
-
 const cellsParent = `[data-group='cells']`
 const cells = `[data-group='cells'] > g`
 const cellNumber = `[text-anchor='start']`
@@ -28,7 +27,7 @@ describe(`New York Times mini grid page tests`, function () {
     $(revealWordButton).click()
   })
 
-  it('should scrape Mini puzzle data without using Cheerio', () => {
+  it('should scrape Mini puzzle data in less than a second without using Cheerio', () => {
     // start the clock
     const startTime = new Date()
 
@@ -54,13 +53,18 @@ describe(`New York Times mini grid page tests`, function () {
 
       allCellsData.push(cellData)
     })
+
+    // stop the clock
     const endTime = new Date()
-    console.log(allCellsData)
+
+    // Uncomment the following line to see the puzzle data printed to the console
+    // console.log(allCellsData)
+  
     console.log(`!!!!!!!! - TOTAL ELAPSED TIME WITHOUT CHEERIO: ${endTime - startTime} milliseconds`)
-    expect(endTime - startTime, 'Expected to be able to get grid info in under 1 second').to.be.below(1000)
+    expect(endTime - startTime, 'Expected to be able to get grid info WITHOUT CHEERIO in under 1 second').to.be.below(1000)
   })
 
-  it('should scrape Mini puzzle data using Cheerio this time', () => {
+  it('should scrape Mini puzzle data in less than a second using Cheerio this time', () => {
     // start the clock
     const startTime = new Date()
 
@@ -82,8 +86,14 @@ describe(`New York Times mini grid page tests`, function () {
       }
       allCellsData.push(cellObject)
     })
+
+    // stop the clock
     const endTime = new Date()
+
+    // Uncomment the following line to see the puzzle data printed to the console
+    // console.log(allCellsData)
+
     console.log(`!!!!!!!! - TOTAL ELAPSED TIME WITH CHEERIO: ${endTime - startTime} milliseconds`)
-    expect(endTime - startTime, 'Expected to be able to get grid info in under 1 second').to.be.below(1000)
+    expect(endTime - startTime, 'Expected to be able to get grid info WITH CHEERIO in under 1 second').to.be.below(1000)
   })
 })
