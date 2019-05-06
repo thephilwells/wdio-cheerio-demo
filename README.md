@@ -1,6 +1,6 @@
 # WebDriverIO + Cheerio = Faster Tests!
 
-This is a little demo repo I threw together to illustrate how we're using [cheerio](https://cheerio.js.org/) on the New York Times Games team to convert HTML strings into local DOM objects for crawling with WebdriverIO. We've found pretty significant performance gains using this technique.
+This is a little demo repo I threw together to illustrate how we're using [cheerio](https://cheerio.js.org/) on the New York Times Games team to convert HTML strings into local DOM objects for crawling and asserting. We've found pretty significant performance gains using this technique.
 
 ## Spoiler Alert
 
