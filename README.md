@@ -34,6 +34,10 @@ The second test does it like this:
 * Use cheerio to convert that HTML string into a DOM object
 * Use cheerio to crawl that DOM object locally and get the same data
 
-## Caveat
+## Incidental Caveat
 
 The puzzle page loads ads, and some ads containing video might take long enough to load that the tests time out. Sorry about that. Just restart the tests until you get results.
+
+## Fundamental Caveat
+
+The method uses WebdriverIO to pull an HTML string from the browser. After that, it uses cheerio to convert that HTML back into a DOM locally and uses cheerio again to crawl that DOM. This means the last time we're asserting something in the DOM, we're not asserting it directly in a browser. This will _usually_ not matter. In most cases, a DOM is just a DOM. Still, this is not adequate if you're intending to test functionality across browsers. BEWARE!
