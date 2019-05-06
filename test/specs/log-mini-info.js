@@ -97,3 +97,4 @@ describe(`New York Times mini grid page tests`, function () {
     expect(endTime - startTime, 'Expected to be able to get grid info WITH CHEERIO in under 1 second').to.be.below(1000)
   })
 })
+
